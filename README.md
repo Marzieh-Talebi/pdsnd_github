@@ -9,7 +9,7 @@ Explore US Bikeshare Data
 ### Description
 
 This code shows descriptive statistics of US bikeshare activities.
-It displays the number of subscribers, number ,Gender, youngest, oldest and most common age of users.
+It displays the number of subscribers and users ,Gender, the youngest, the oldest and the most common age of users.
  
 
 ### Files used
