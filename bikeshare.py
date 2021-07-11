@@ -183,15 +183,17 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
         
-        view_data = input('\nWould you like to view 5 rows of individual trip data? Enter yes or no\n')
+        patch_size = 5
+        view_data = input('\n would you like to get ' + str(patch_size) +' number of individual trip data? Enter yes or no\n')
         start_loc = 0
-        num_rows= df.shape [0]
+        num_rows = df.shape [0]
+        
         while (view_data.lower() == 'yes' and num_rows-start_loc>=0 ):
-            if num_rows-start_loc<5:
+            if num_rows-start_loc < patch_size:
                print(df.iloc[start_loc : num_rows])
             else:
-                print(df.iloc[start_loc : start_loc+5])
-            start_loc += 5
+                print(df.iloc[start_loc : start_loc + patch_size])
+            start_loc += patch_size
             view_data = input("Do you wish to continue?: ")
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
