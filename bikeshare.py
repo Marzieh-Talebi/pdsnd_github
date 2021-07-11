@@ -5,7 +5,7 @@ import numpy as np
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
-months = ['january', 'february', 'march', 'april', 'may', 'june']
+months = ['january', 'february', 'march', 'april', 'may', 'june','all']
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -50,8 +50,7 @@ def load_data(city, month, day):
 
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
-    df['day_of_week'] = df['Start Time'].dt.weekday_name
-
+    df['day_of_week'] = df['Start Time'].dt.day_name()
     if month != 'all':
         #months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
@@ -86,7 +85,7 @@ def time_stats(df):
         print('Most Popular Start month:', popular_month)
     
     # TO DO: display the most common day of week
-        df['day'] = df['Start Time'].dt.weekday_name
+        df['day'] = df['Start Time'].dt.day_name()
         popular_day = df['day'].mode()[0]
         print('Most Popular Start day:', popular_day)
     # TO DO: display the most common start hour
